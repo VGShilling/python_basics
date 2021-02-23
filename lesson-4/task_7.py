@@ -1,9 +1,11 @@
-from math import factorial
+from functools import reduce
 
 
 def fact(a):
+    def multi(perv_el, el):
+        return perv_el * el
     for i in range(1, a+1):
-        f = factorial(i)
+        f = reduce(multi, range(1, i+1))
         yield f
 
 
